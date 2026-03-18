@@ -1,0 +1,27 @@
+{
+  "name": "PBT Workshop - Python/Django",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": ["tests/"],
+        "editor.formatOnSave": true,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        }
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "ms-python.debugpy"
+      ]
+    }
+  },
+
+  "postCreateCommand": "pip install -e '.[dev]'",
+  "remoteUser": "vscode"
+}

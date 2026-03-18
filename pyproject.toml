@@ -1,0 +1,28 @@
+[project]
+name = "pbt-workshop-backend"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "django>=5.1,<6.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-django>=4.8",
+    "hypothesis>=6.100",
+    "ruff>=0.4",
+]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "workshop.settings"
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+testpaths = ["ex1_invariants/tests", "ex2_workflow/tests", "ex3_robustness/tests"]
+
+[tool.hypothesis]
+max_examples = 50
+
+[tool.ruff]
+line-length = 100

@@ -2,10 +2,14 @@
   "name": "PBT Workshop - Python/Django",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
 
+  "features": {
+    "ghcr.io/astral-sh/uv-devcontainer-features/uv:latest": {}
+  },
+
   "customizations": {
     "vscode": {
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
         "python.testing.pytestEnabled": true,
         "python.testing.pytestArgs": ["tests/"],
         "editor.formatOnSave": true,
@@ -22,6 +26,6 @@
     }
   },
 
-  "postCreateCommand": "pip install -e '.[dev]'",
+  "postCreateCommand": "uv sync --group dev",
   "remoteUser": "vscode"
 }

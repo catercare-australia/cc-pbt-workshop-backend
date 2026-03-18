@@ -2,10 +2,6 @@
   "name": "PBT Workshop - Python/Django",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
 
-  "features": {
-    "ghcr.io/astral-sh/uv-devcontainer-features/uv:latest": {}
-  },
-
   "customizations": {
     "vscode": {
       "settings": {
@@ -26,6 +22,6 @@
     }
   },
 
-  "postCreateCommand": "uv sync --group dev",
+  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && . $HOME/.local/bin/env && uv sync --group dev",
   "remoteUser": "vscode"
 }
